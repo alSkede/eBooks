@@ -1,5 +1,4 @@
 export default function Scene01() {
-  
   return (
     <div className="min-h-screen flex flex-col justify-between bg-white text-gray-800 p-6 max-w-3xl mx-auto">
       <main className="space-y-6">
@@ -14,13 +13,13 @@ export default function Scene01() {
 
       <footer className="flex justify-between mt-10">
         <button
-          onClick={() => navigate("/scene/20")}
+          onClick={() => alert('Go back')}
           className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
         >
           ← Zurück
         </button>
         <button
-          onClick={() => navigate("/scene/02")}
+          onClick={() => alert('Go forward')}
           className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
         >
           Weiter →
