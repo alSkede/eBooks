@@ -1,8 +1,5 @@
-import { useNavigate } from "react-router-dom";
-
 export default function Scene01() {
-  const navigate = useNavigate();
-
+  
   return (
     <div className="min-h-screen flex flex-col justify-between bg-white text-gray-800 p-6 max-w-3xl mx-auto">
       <main className="space-y-6">
