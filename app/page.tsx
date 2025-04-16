@@ -1,9 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
+'use client';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+import SceneViewer from '../scenes/SceneViewer';
+
+export default function Page() {
+  return (
+    <main>
+      <SceneViewer />
+    </main>
+  );
+}
