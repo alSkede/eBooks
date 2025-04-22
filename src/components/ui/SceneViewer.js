@@ -1,61 +1,61 @@
-import { useState } from 'react';
-import { sceneData } from '../data/sceneDataFull';
-import { sceneInteractions } from '../data/sceneInteractions';
-import SceneInteractive from '../components/SceneInteractive';
+import React, { useState } from "react";
+import { sceneData } from "../../data/sceneDataFull";
+import SceneInteractive from "../SceneInteractive";
 
 export default function SceneViewer() {
   const [selectedScene, setSelectedScene] = useState(sceneData[0]);
-  const numericSceneId = parseInt(selectedScene.id.replace('scene-', ''), 10);
+  const numericSceneId = parseInt(selectedScene.id.replace("scene-", ""), 10);
 
   return (
-    <div className="max-w-4xl mx-auto p-6 space-y-8">
-      <h1 className="text-3xl font-bold text-center text-blue-700">
+    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
+      <h1 style={{ fontSize: "2rem", fontWeight: "bold", marginBottom: "2rem", textAlign: "center" }}>
         Tryll & Li Bäh — Interactive eBook
       </h1>
-
-      {/* Scene Selector */}
-      <div className="flex flex-wrap justify-center gap-2">
+      <div style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        gap: "0.5rem",
+        marginBottom: "2rem"
+      }}>
         {sceneData.map(scene => (
           <button
             key={scene.id}
             onClick={() => setSelectedScene(scene)}
-            className={`px-4 py-2 rounded-full border transition ${
-              selectedScene.id === scene.id
-                ? 'bg-blue-500 text-white'
-                : 'bg-white text-blue-500 hover:bg-blue-100'
-            }`}
+            style={{
+              padding: "0.5rem 1rem",
+              borderRadius: "9999px",
+              border: "1px solid #3b82f6",
+              backgroundColor: selectedScene.id === scene.id ? "#3b82f6" : "#fff",
+              color: selectedScene.id === scene.id ? "#fff" : "#3b82f6",
+              cursor: "pointer"
+            }}
           >
             {scene.title}
           </button>
         ))}
       </div>
-
-      {/* Scene Content */}
-      <div className="bg-gray-50 p-6 rounded-xl shadow space-y-4">
-        <h2 className="text-2xl font-semibold text-blue-800">{selectedScene.title}</h2>
-
-        {/* Narration */}
-        <div className="space-y-2">
-          {selectedScene.narration.map((line, index) => (
-            <p key={index}>
-              <span className="font-mono text-blue-700">{line.speaker}:</span>{' '}
-              <span>{line.text}</span>
-            </p>
-          ))}
-        </div>
-
-        {/* Visual */}
-        {selectedScene.visual && (
-          <div className="pt-4 text-center">
-            <img
-              src={`/assets/${selectedScene.visual}`}
-              alt={selectedScene.title}
-              className="inline-block max-w-full rounded-xl border border-gray-300 shadow-sm"
-            />
-          </div>
-        )}
-
-        {/* Interaktion */}
+      <div style={{ backgroundColor: "#f9fafb", padding: "1.5rem", borderRadius: "1rem", maxWidth: "800px", margin: "0 auto" }}>
+        <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "1rem" }}>
+          {selectedScene.title}
+        </h2>
+        {selectedScene.narration.map((line, index) => (
+          <p key={index} style={{ marginBottom: "0.75rem" }}>
+            <strong style={{ fontFamily: "monospace", color: "#2563eb" }}>{line.speaker}:</strong> {line.text}
+          </p>
+        ))}
+        <img
+          src={selectedScene.visual}
+          alt={selectedScene.title}
+          style={{
+            width: "100%",
+            maxWidth: "600px",
+            margin: "2rem auto 0",
+            display: "block",
+            borderRadius: "1rem",
+            boxShadow: "0 5px 20px rgba(0,0,0,0.1)"
+          }}
+        />
         <SceneInteractive sceneId={numericSceneId} />
       </div>
     </div>

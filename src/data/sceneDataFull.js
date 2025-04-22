@@ -25,7 +25,7 @@ export const sceneData = [
         "text": "Tryll completely misunderstood it. As usual."
       }
     ],
-    "visual": "/scene-images/scene01-wiggle.png"
+    "visual": "scene01-wiggle.png"
   },
   {
     "id": "scene-02",
@@ -52,7 +52,7 @@ export const sceneData = [
         "text": "And so Tryll followed Greg. Through soup. Through sand. Through something that may have once been soup but was now definitely soup-adjacent."
       }
     ],
-    "visual": "/scene-images/scene02-march.png"
+    "visual": "scene02-march.png"
   },
   {
     "id": "scene-03",
@@ -83,7 +83,7 @@ export const sceneData = [
         "text": "This is the beginning of choice. One blob will ask, \u201cWho am I?\u201d The other will answer: \u201cMmmmbllrrrhh.\u201d"
       }
     ],
-    "visual": "/scene-images/scene03-divide.png"
+    "visual": "scene03-divide.png"
   },
   {
     "id": "scene-04",
@@ -110,7 +110,7 @@ export const sceneData = [
         "text": "Evolution, it turned out, wasn\u2019t a march. It was more of a flop. And sometimes, a stumble with intentions."
       }
     ],
-    "visual": "/scene-images/scene04-legs.png"
+    "visual": "scene04-legs.png"
   },
   {
     "id": "scene-05",
@@ -137,7 +137,7 @@ export const sceneData = [
         "text": "One ammonite fell off and rolled into a puddle. Man did not notice."
       }
     ],
-    "visual": "/scene-imagesscene05-shell.png"
+    "visual": "scene05-shell.png"
   },
   {
     "id": "scene-06",
