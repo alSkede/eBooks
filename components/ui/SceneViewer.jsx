@@ -17,3 +17,25 @@ function SceneViewer({ currentScene }) {
     </div>
   );
 }
+// Füge diese Funktion innerhalb der Komponente hinzu
+function getImagePath(path) {
+  // Wenn es bereits ein vollständiger Pfad ist (beginnt mit /)
+  if (path.startsWith('/')) {
+    return path.substring(1); // Entferne den führenden /
+  }
+  
+  // Wenn es nur ein Dateiname ist, füge den Ordner hinzu
+  if (!path.includes('/')) {
+    return `scene-images/${path}`;
+  }
+  
+  // Andernfalls gib den Pfad unverändert zurück
+  return path;
+}
+
+// Und verwende sie im img-Tag:
+<img
+  src={getImagePath(currentScene.visual)}
+  alt={currentScene.title}
+  // weitere Attribute...
+/>
