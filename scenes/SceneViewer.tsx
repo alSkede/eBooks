@@ -1,8 +1,12 @@
 import { useState } from 'react';
-import { sceneData } from '../data/sceneData';
+import { sceneData } from '../data/sceneDataFull'; // oder '../data/sceneData' wenn noch nicht umbenannt
+import { sceneInteractions } from '../data/sceneInteractions';
+import SceneInteractive from '../components/SceneInteractive';
 
 export default function SceneViewer() {
   const [selectedScene, setSelectedScene] = useState(sceneData[0]);
+
+  const numericSceneId = parseInt(selectedScene.id.replace('scene-', ''), 10);
 
   return (
     <div className="p-6">
@@ -14,7 +18,9 @@ export default function SceneViewer() {
           <button
             key={scene.id}
             onClick={() => setSelectedScene(scene)}
-            className={`px-4 py-2 rounded-full border ${selectedScene.id === scene.id ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'}`}
+            className={`px-4 py-2 rounded-full border transition ${
+              selectedScene.id === scene.id ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'
+            }`}
           >
             {scene.title}
           </button>
@@ -33,10 +39,17 @@ export default function SceneViewer() {
         ))}
       </div>
 
-      {/* Placeholder for Visual */}
-      <div className="mt-4 text-sm text-gray-500">
+      {/* Visual Viewer */}
+      <div className="mt-4 text-sm text-gray-500 italic">
         [Visual: {selectedScene.visual}]
       </div>
+
+      {/* 🧩 Interactive Modules */}
+      {sceneInteractions[numericSceneId] && (
+        <div className="mt-6">
+          <SceneInteractive sceneId={numericSceneId} />
+        </div>
+      )}
     </div>
   );
 }
