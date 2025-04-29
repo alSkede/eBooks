@@ -1,41 +1,38 @@
-function SceneViewer({ currentScene }) {
+function getImagePath(path) {
+  // Wenn der Pfad schon mit '/' beginnt, ist er fertig
+  if (path.startsWith('/')) {
+    return path; // Keine Änderung nötig
+  }
+
+  // Wenn der Pfad noch keinen Slash hat, füge "scene-images/" hinzu
+  if (!path.includes('/')) {
+    return `/scene-images/${path}`;
+  }
+
+  // Sonst: Standardmäßig sicherstellen, dass ein / davor ist
+  return `/${path}`;
+}
+
+export default function SceneViewer({ currentScene }) {
   return (
     <div className="scene-container">
-      <h2>{currentScene.title}</h2>
+      <h2 className="text-2xl font-bold mb-4">{currentScene.title}</h2>
 
+      {/* Bild richtig laden */}
       <img
-        src={currentScene.visual.includes('scene-images/}
-            ? currentScene.visual 
-            : `scene-images/${currentScene.visual}`}
+        src={getImagePath(currentScene.visual)}
         alt={currentScene.title}
         className="w-full max-w-3xl mx-auto my-4 rounded-xl shadow-md"
       />
 
-      {currentScene.narration.map((line, index) => (
-        <p key={index}><strong>{line.speaker}:</strong> {line.text}</p>
-      ))}
+      {/* Narration ausgeben */}
+      <div className="narration space-y-2">
+        {currentScene.narration.map((line, index) => (
+          <p key={index}>
+            <strong>{line.speaker}:</strong> {line.text}
+          </p>
+        ))}
+      </div>
     </div>
   );
 }
-// Füge diese Funktion innerhalb der Komponente hinzu
-function getImagePath(path) {
-  // Wenn es bereits ein vollständiger Pfad ist (beginnt mit /)
-  if (path.startsWith('/')) {
-    return path.substring(1); // Entferne den führenden /
-  }
-  
-  // Wenn es nur ein Dateiname ist, füge den Ordner hinzu
-  if (!path.includes('/')) {
-    return `scene-images/${path}`;
-  }
-  
-  // Andernfalls gib den Pfad unverändert zurück
-  return path;
-}
-
-// Und verwende sie im img-Tag:
-<img
-  src={getImagePath(currentScene.visual)}
-  alt={currentScene.title}
-  // weitere Attribute...
-/>
