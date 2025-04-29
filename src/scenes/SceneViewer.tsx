@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { sceneData } from '../data/sceneDataFull'; // oder '../data/sceneData' wenn noch nicht umbenannt
-import { sceneInteractions } from '../data/sceneInteractions';
-import SceneInteractive from '../components/SceneInteractive';
+import { sceneData } from '../src/data/sceneDataFull'; // oder '../data/sceneData' wenn noch nicht umbenannt
+import { sceneInteractions } from '../src/data/sceneInteractions';
+import SceneInteractive from '../src/components/SceneInteractive';
 
 export default function SceneViewer() {
   const [selectedScene, setSelectedScene] = useState(sceneData[0]);
