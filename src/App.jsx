@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { sceneData } from "./data/sceneDataFull";
+import './styles/buttonStyles.css'
+import { sceneData } from "./data/sceneDataFull"
 import SceneViewer from './SceneViewer'
 
 export default function App() {
