@@ -1,12 +1,26 @@
-import React from 'react'
+import { useState } from 'react'
+import { sceneData } from './sceneDataFull'
+import SceneViewer from './SceneViewer'
 
-function App() {
+export default function App() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const currentScene = sceneData[currentIndex]
+
+  function nextScene() {
+    setCurrentIndex((prev) => Math.min(prev + 1, sceneData.length - 1))
+  }
+
+  function prevScene() {
+    setCurrentIndex((prev) => Math.max(prev - 1, 0))
+  }
+
   return (
-    <div>
-      <h1>Tryll & Li Bäh</h1>
-      <p>Willkommen im interaktiven eBook!</p>
+    <div className="p-4 text-center">
+      <SceneViewer currentScene={currentScene} />
+      <div className="mt-6 space-x-4">
+        <button onClick={prevScene} disabled={currentIndex === 0}>⬅️ Back</button>
+        <button onClick={nextScene} disabled={currentIndex === sceneData.length - 1}>➡️ Next</button>
+      </div>
     </div>
   )
 }
-
-export default App
