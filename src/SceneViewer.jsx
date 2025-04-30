@@ -1,25 +1,18 @@
-function getImagePath(path) {
-  if (path.startsWith('/')) return path
-  if (!path.includes('/')) return `/scene-images/${path}`
-  return `/${path}`
-}
+import React from 'react'
+import { useEbook } from '../hooks/useEbook'
 
-export default function SceneViewer({ currentScene }) {
+export default function SceneViewer() {
+  const { currentScene } = useEbook()
+
+  if (!currentScene) {
+    return <div>⚠️ Keine Szene gefunden.</div>
+  }
+
   return (
-    <div className="scene-container max-w-4xl mx-auto">
-      <h2 className="text-2xl font-bold mb-4">{currentScene.title}</h2>
-
-      <img
-        src={getImagePath(currentScene.visual)}
-        alt={currentScene.title}
-        className="w-full max-w-3xl mx-auto my-4 rounded-xl shadow-md"
-      />
-
-      <div className="narration space-y-2">
-        {currentScene.narration.map((line, index) => (
-          <p key={index}><strong>{line.speaker}:</strong> {line.text}</p>
-        ))}
-      </div>
+    <div className="scene-viewer">
+      <h2>{currentScene.title || 'Ohne Titel'}</h2>
+      <p>{currentScene.text || 'Kein Text verfügbar.'}</p>
+      {/* Hier kannst du auch Bild, Audio etc. rendern */}
     </div>
   )
 }
