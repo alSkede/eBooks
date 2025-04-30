@@ -1,3 +1,4 @@
+import React from 'react'
 import { useEbook } from '../hooks/useEbook'
 import '../styles/buttonStyles.css'
 
@@ -6,10 +7,19 @@ export default function SceneNavigation() {
 
   return (
     <div className="button-group">
-      <button onClick={prevScene} className="button-secondary" disabled={currentIndex === 0}>
+      <button
+        onClick={prevScene}
+        className="button-secondary"
+        disabled={currentIndex === 0}
+      >
         ⬅️ Zurück
       </button>
-      <button onClick={nextScene} disabled={currentIndex >= 19}>
+
+      {/* Hinweis: sceneData.length - 1 wäre die elegantere Alternative */}
+      <button
+        onClick={nextScene}
+        disabled={currentIndex >= 19}
+      >
         ➡️ Weiter
       </button>
     </div>
