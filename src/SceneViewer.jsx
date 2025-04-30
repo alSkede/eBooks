@@ -8,7 +8,7 @@ export default function SceneViewer() {
 
   if (!currentScene) return <div>⚠️ No scene loaded.</div>
 
-  const { title, visual, narration, quiz, museum, journal } = currentScene
+  const { title, visual, narration, audio, quiz, museum, journal } = currentScene
 
   // Combine narration into one text block
   const combinedText = narration?.map(n => `${n.speaker}: ${n.text}`).join('\n\n')
@@ -25,6 +25,15 @@ export default function SceneViewer() {
         </div>
       )}
 
+    {audio && (
+       <div style={{ marginTop: '1rem' }}>
+         <audio controls preload="metadata" style={{ maxWidth: '100%' }}>
+           <source src={audio} type="audio/mp4" />
+           Your browser does not support the audio element.
+        </audio>
+       </div>
+     )}
+      
       {/* 3. Narration text */}
       {combinedText && (
         <p style={{ whiteSpace: 'pre-wrap', marginTop: '1rem', maxWidth: '600px', marginInline: 'auto' }}>
