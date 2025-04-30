@@ -1,55 +1,38 @@
-import { useState } from 'react';
-import { sceneData } from '../src/data/sceneDataFull'; // oder '../data/sceneData' wenn noch nicht umbenannt
-import { sceneInteractions } from '../src/data/sceneInteractions';
-import SceneInteractive from '../src/components/SceneInteractive';
+function getImagePath(path) {
+  // Wenn der Pfad schon mit '/' beginnt, ist er fertig
+  if (path.startsWith('/')) {
+    return path; // Keine Änderung nötig
+  }
 
-export default function SceneViewer() {
-  const [selectedScene, setSelectedScene] = useState(sceneData[0]);
+  // Wenn der Pfad noch keinen Slash hat, füge "scene-images/" hinzu
+  if (!path.includes('/')) {
+    return `/scene-images/${path}`;
+  }
 
-  const numericSceneId = parseInt(selectedScene.id.replace('scene-', ''), 10);
+  // Sonst: Standardmäßig sicherstellen, dass ein / davor ist
+  return `/${path}`;
+}
 
+export default function SceneViewer({ currentScene }) {
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Tryll & Li Bäh — Interactive eBook</h1>
+    <div className="scene-container">
+      <h2 className="text-2xl font-bold mb-4">{currentScene.title}</h2>
 
-      {/* Scene Selector */}
-      <div className="mb-6 flex flex-wrap gap-2">
-        {sceneData.map(scene => (
-          <button
-            key={scene.id}
-            onClick={() => setSelectedScene(scene)}
-            className={`px-4 py-2 rounded-full border transition ${
-              selectedScene.id === scene.id ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'
-            }`}
-          >
-            {scene.title}
-          </button>
-        ))}
-      </div>
+      {/* Bild richtig laden */}
+      <img
+        src={getImagePath(currentScene.visual)}
+        alt={currentScene.title}
+        className="w-full max-w-3xl mx-auto my-4 rounded-xl shadow-md"
+      />
 
-      {/* Narration Viewer */}
-      <div className="bg-gray-100 p-4 rounded-xl shadow-md">
-        <h2 className="text-xl font-semibold mb-2">{selectedScene.title}</h2>
-
-        {selectedScene.narration.map((line, index) => (
-          <p key={index} className="mb-2">
-            <span className="font-mono text-blue-700">{line.speaker}:</span>{' '}
-            <span>{line.text}</span>
+      {/* Narration ausgeben */}
+      <div className="narration space-y-2">
+        {currentScene.narration.map((line, index) => (
+          <p key={index}>
+            <strong>{line.speaker}:</strong> {line.text}
           </p>
         ))}
       </div>
-
-      {/* Visual Viewer */}
-      <div className="mt-4 text-sm text-gray-500 italic">
-        [Visual: {selectedScene.visual}]
-      </div>
-
-      {/* 🧩 Interactive Modules */}
-      {sceneInteractions[numericSceneId] && (
-        <div className="mt-6">
-          <SceneInteractive sceneId={numericSceneId} />
-        </div>
-      )}
     </div>
   );
 }
