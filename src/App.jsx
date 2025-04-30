@@ -3,16 +3,12 @@ import './styles/buttonStyles.css'
 import './styles/iconButtonStyles.css'
 import { sceneData } from "./data/sceneDataFull"
 import SceneViewer from './SceneViewer'
+import { useEbook } from './hooks/useEbook'
 import SceneNavigation from './components/SceneNavigation'
 import IconButton from './components/IconButton'
 
 export default function App() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const currentScene = sceneData[currentIndex]
-
-  function nextScene() {
-    setCurrentIndex((prev) => Math.min(prev + 1, sceneData.length - 1))
-  }
+  const { currentScene, nextScene, prevScene } = useEbook()
 
   function prevScene() {
     setCurrentIndex((prev) => Math.max(prev - 1, 0))
