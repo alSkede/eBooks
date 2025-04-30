@@ -8,7 +8,7 @@ export default function SceneViewer() {
 
   if (!currentScene) return <div>⚠️ No scene loaded.</div>
 
-  const { title, visual, narration } = currentScene
+  const { title, visual, narration, quiz, museum, journal } = currentScene
 
   // Combine narration into one text block
   const combinedText = narration?.map(n => `${n.speaker}: ${n.text}`).join('\n\n')
