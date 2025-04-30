@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEbook } from '../hooks/useEbook'
+import { useEbook } from './hooks/useEbook'
 
 export default function SceneViewer() {
   const { currentScene } = useEbook()
