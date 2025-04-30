@@ -1,42 +1,25 @@
-import { useState } from 'react'
-import './styles/buttonStyles.css'
-import './styles/iconButtonStyles.css'
-import { sceneData } from "./data/sceneDataFull"
-import SceneViewer from './SceneViewer'
-import { useEbook } from './hooks/useEbook'
-import SceneNavigation from './components/SceneNavigation'
-import IconButton from './components/IconButton'
+import React from 'react'
+import { useEbook } from '../hooks/useEbook'
+import '../styles/buttonStyles.css'
 
-export default function App() {
-  const { currentScene, nextScene, prevScene } = useEbook()
-
-  function prevScene() {
-    setCurrentIndex((prev) => Math.max(prev - 1, 0))
-  }
-
-  function openQuiz() {
-    alert("Quiz geöffnet!") // Platzhalter für echte Interaktion
-  }
-
-  function openMuseum() {
-    alert("Museum geöffnet!") // Platzhalter
-  }
-
-  function openJournal() {
-    alert("Tagebuch geöffnet!") // Platzhalter
-  }
+export default function SceneNavigation() {
+  const { currentIndex, nextScene, prevScene } = useEbook()
 
   return (
-    <div className="p-4 text-center">
-      <SceneViewer currentScene={currentScene} />
-
-      <SceneNavigation onBack={prevScene} onNext={nextScene} />
-
-      <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '1rem' }}>
-        <IconButton type="quiz" label="Quiz" onClick={openQuiz} />
-        <IconButton type="museum" label="Museum" onClick={openMuseum} />
-        <IconButton type="journal" label="Tagebuch" onClick={openJournal} />
-      </div>
+    <div className="button-group">
+      <button
+        onClick={prevScene}
+        className="button-secondary"
+        disabled={currentIndex === 0}
+      >
+        ⬅️ Zurück
+      </button>
+      <button
+        onClick={nextScene}
+        disabled={currentIndex >= 19}  {/* oder sceneData.length - 1 */}
+      >
+        ➡️ Weiter
+      </button>
     </div>
   )
 }
