@@ -2,6 +2,16 @@ import { useState } from 'react'
 import './styles/buttonStyles.css'
 import { sceneData } from "./data/sceneDataFull"
 import SceneViewer from './SceneViewer'
+import SceneNavigation from './components/SceneNavigation'
+import IconButton from './components/IconButton'
+
+<SceneNavigation onBack={goToPrev} onNext={goToNext} />
+
+<div style={{ display: 'flex', gap: '12px', marginTop: '1rem' }}>
+  <IconButton type="quiz" label="Quiz" onClick={openQuiz} />
+  <IconButton type="museum" label="Museum" onClick={openMuseum} />
+  <IconButton type="journal" label="Tagebuch" onClick={openJournal} />
+</div>
 
 export default function App() {
   const [currentIndex, setCurrentIndex] = useState(0)
