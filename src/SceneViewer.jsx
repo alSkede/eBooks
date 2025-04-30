@@ -41,3 +41,11 @@ export default function SceneViewer() {
     </div>
   )
 }
+{/* 5. Icon Buttons – only if present */}
+{(quiz || museum || journal) && (
+  <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '1rem' }}>
+    {quiz && <IconButton type="quiz" label="Quiz" onClick={() => alert('Quiz opened')} />}
+    {museum && <IconButton type="museum" label="Museum" onClick={() => alert('Museum opened')} />}
+    {journal && <IconButton type="journal" label="Journal" onClick={() => alert('Journal opened')} />}
+  </div>
+)}
