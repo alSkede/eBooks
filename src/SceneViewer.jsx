@@ -8,7 +8,10 @@ export default function SceneViewer() {
 
   if (!currentScene) return <div>⚠️ No scene loaded.</div>
 
-  const { title, text, image, quiz, museum, journal } = currentScene
+  const { title, visual, narration } = currentScene
+
+  // Combine narration into one text block
+  const combinedText = narration?.map(n => `${n.speaker}: ${n.text}`).join('\n\n')
 
   return (
     <div className="scene-viewer text-center p-4">
@@ -16,32 +19,25 @@ export default function SceneViewer() {
       <h2>{title || 'Untitled Scene'}</h2>
 
       {/* 2. Image (if present) */}
-      {image && (
+      {visual && (
         <div style={{ marginTop: '1rem' }}>
-          <img src={image} alt="Scene" style={{ maxWidth: '100%', borderRadius: '12px' }} />
+          <img src={`/src/assets/${visual}`} alt="Scene visual" style={{ maxWidth: '100%', borderRadius: '12px' }} />
         </div>
       )}
 
-      {/* 3. Text (if present) */}
-      {text && (
-        <p style={{ marginTop: '1rem', maxWidth: '600px', marginInline: 'auto' }}>
-          {text}
+      {/* 3. Narration text */}
+      {combinedText && (
+        <p style={{ whiteSpace: 'pre-wrap', marginTop: '1rem', maxWidth: '600px', marginInline: 'auto' }}>
+          {combinedText}
         </p>
       )}
 
-      {/* 4. Navigation Buttons */}
+      {/* 4. Navigation */}
       <div style={{ marginTop: '1.5rem' }}>
         <SceneNavigation />
       </div>
 
-      {/* 5. Icon Buttons (only if defined in sceneData) */}
-      {(quiz || museum || journal) && (
-        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '1rem' }}>
-          {quiz && <IconButton type="quiz" label="Quiz" onClick={() => alert('Quiz opened')} />}
-          {museum && <IconButton type="museum" label="Museum" onClick={() => alert('Museum opened')} />}
-          {journal && <IconButton type="journal" label="Journal" onClick={() => alert('Journal opened')} />}
-        </div>
-      )}
+      {/* 5. Icon Buttons – not shown, none defined in sceneData */}
     </div>
   )
 }
