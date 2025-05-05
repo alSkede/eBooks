@@ -5,7 +5,6 @@ import { journalData } from "./components/Journal/journalData";
 export const sceneRegistry = {
   getSceneFeatures(sceneIndex) {
     if (typeof sceneIndex !== "number" || isNaN(sceneIndex)) {
-      console.warn("Invalid sceneIndex:", sceneIndex);
       return {
         hasQuiz: false,
         hasMuseum: false,
@@ -13,9 +12,9 @@ export const sceneRegistry = {
       };
     }
     return {
-      hasQuiz: !!quizData[sceneIndex],
-      hasMuseum: !!museumData[sceneIndex],
-      hasJournal: !!journalData[sceneIndex]
+      hasQuiz: !!(quizData[sceneIndex] && Object.keys(quizData[sceneIndex]).length > 0),
+      hasMuseum: !!(museumData[sceneIndex] && Object.keys(museumData[sceneIndex]).length > 0),
+      hasJournal: !!(journalData[sceneIndex] && Object.keys(journalData[sceneIndex]).length > 0)
     };
   }
 };
