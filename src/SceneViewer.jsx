@@ -12,10 +12,7 @@ export default function SceneViewer({ onOpenMuseum, onOpenQuiz, onOpenJournal })
   const { title, visual, narration, audio } = currentScene;
   const combinedText = narration?.map(n => `${n.speaker}: ${n.text}`).join('\n\n');
 
-  const { hasQuiz, hasMuseum, hasJournal } = Number.isInteger(currentSceneIndex)
-    ? sceneRegistry.getSceneFeatures(currentSceneIndex)
-    : { hasQuiz: false, hasMuseum: false, hasJournal: false };
-
+  const { hasQuiz, hasMuseum, hasJournal } = sceneRegistry.getSceneFeatures(currentSceneIndex);
 
   return (
     <div className="scene-viewer text-center p-4">
