@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import SceneViewer from './SceneViewer'
-import Museum from './components/Museum'
-import Quiz from './components/Quiz'
+import Museum from "./components/Museum/Museum";
+import Quiz from "./components/Quiz/Quiz";
 import './styles/buttonStyles.css'
 import './styles/iconButtonStyles.css'
 import './index.css'
