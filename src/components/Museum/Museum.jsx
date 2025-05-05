@@ -1,5 +1,6 @@
 import { Card, CardContent } from "../ui/card";
 import { useEbook } from "../../hooks/useEbook";
+import { quizData } from "./quizData";
 import { museumData } from "./museumData";
 
 export default function Museum() {
