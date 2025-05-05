@@ -5,7 +5,6 @@ import IconButton from './components/IconButton'
 
 export default function SceneViewer() {
   const { currentScene } = useEbook()
-  <p> Aktuelle Szene: {currentScene?.id}</p>
 
   if (!currentScene) return <div>⚠️ No scene loaded.</div>
 
@@ -17,7 +16,7 @@ export default function SceneViewer() {
     <div className="scene-viewer text-center p-4">
       {/* 1. Title */}
       <h2>{title || 'Untitled Scene'}</h2>
-
+      <p> Aktuelle Szene: {currentScene?.id}</p>
       {/* 2. Image */}
       {visual && (
         <div style={{ marginTop: '1rem' }}>
