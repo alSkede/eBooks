@@ -4,6 +4,14 @@ import { journalData } from "./components/Journal/journalData";
 
 export const sceneRegistry = {
   getSceneFeatures(sceneIndex) {
+    if (typeof sceneIndex !== "number" || isNaN(sceneIndex)) {
+      console.warn("Invalid sceneIndex:", sceneIndex);
+      return {
+        hasQuiz: false,
+        hasMuseum: false,
+        hasJournal: false
+      };
+    }
     return {
       hasQuiz: !!quizData[sceneIndex],
       hasMuseum: !!museumData[sceneIndex],
