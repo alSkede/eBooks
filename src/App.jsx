@@ -1,3 +1,5 @@
+import Museum from "./components/Museum/Museum";
+import Quiz from "./components/Quiz/Quiz";
 import React, { useState } from 'react'
 import SceneViewer from './SceneViewer'
 import { Card, CardContent } from "./components/ui/card";
