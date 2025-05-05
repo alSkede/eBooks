@@ -1,3 +1,4 @@
+import Start from "./pages/Start";
 import React, { useState } from 'react';
 import SceneViewer from './SceneViewer';
 import Museum from './components/Museum/Museum';
@@ -8,10 +9,14 @@ import './styles/iconButtonStyles.css';
 import './index.css';
 
 export default function App() {
+  const [showStart, setShowStart] = useState(true);
   const [showMuseum, setShowMuseum] = useState(false);
   const [showQuiz, setShowQuiz] = useState(false);
   const [showJournal, setShowJournal] = useState(false);
 
+  if (showStart) {
+    return <Start onStart={() => setShowStart(false)} />;
+  }
   return (
     <div className="p-4 text-center">
       <SceneViewer
