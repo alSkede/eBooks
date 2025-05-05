@@ -1,38 +1,38 @@
-import React from 'react'
-import { useEbook } from '../hooks/useEbook'
-import { sceneData } from '../data/sceneDataFull'
+import React from 'react';
+import { useEbook } from '../hooks/useEbook';
+import { sceneData } from '../data/sceneDataFull';
 
 export default function SceneNavigation() {
-  const { currentIndex, setCurrentIndex } = useEbook()
+  const { currentSceneIndex, setCurrentSceneIndex } = useEbook();
 
   const prevScene = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1)
+    if (currentSceneIndex > 0) {
+      setCurrentSceneIndex(currentSceneIndex - 1);
     }
-  }
+  };
 
   const nextScene = () => {
-    if (currentIndex < sceneData.length - 1) {
-      setCurrentIndex(currentIndex + 1)
+    if (currentSceneIndex < sceneData.length - 1) {
+      setCurrentSceneIndex(currentSceneIndex + 1);
     }
-  }
+  };
 
   return (
     <>
       <button
         onClick={prevScene}
         className="button-secondary"
-        disabled={currentIndex === 0}
+        disabled={currentSceneIndex === 0}
       >
         ⬅️ Zurück
       </button>
 
       <button
         onClick={nextScene}
-        disabled={currentIndex >= sceneData.length - 1}
+        disabled={currentSceneIndex >= sceneData.length - 1}
       >
         ➡️ Weiter
       </button>
     </>
-  )
+  );
 }
