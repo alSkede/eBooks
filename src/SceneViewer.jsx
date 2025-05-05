@@ -3,7 +3,7 @@ import { useEbook } from './hooks/useEbook'
 import SceneNavigation from './components/SceneNavigation'
 import IconButton from './components/IconButton'
 
-export default function SceneViewer() {
+export default function SceneViewer({ onOpenMuseum, onOpenQuiz }) {
   const { currentScene } = useEbook()
 
   if (!currentScene) return <div>⚠️ No scene loaded.</div>
@@ -45,14 +45,13 @@ export default function SceneViewer() {
         <SceneNavigation />
       </div>
 
-      {/* Icon Buttons – auch nur einmal */}
-      {(quiz || museum || journal) && (
-        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '1rem' }}>
-          {quiz && <IconButton type="quiz" label="Quiz" onClick={() => alert('Quiz geöffnet')} />}
-          {museum && <IconButton type="museum" label="Museum" onClick={() => alert('Museum geöffnet')} />}
-          {journal && <IconButton type="journal" label="Journal" onClick={() => alert('Journal geöffnet')} />}
-        </div>
-      )}
+     {(quiz || museum || journal) && (
+      <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '1rem' }}>
+        {quiz && <IconButton type="quiz" label="Quiz" onClick={onOpenQuiz} />}
+        {museum && <IconButton type="museum" label="Museum" onClick={onOpenMuseum} />}
+        {journal && <IconButton type="journal" label="Journal" onClick={() => alert('Journal geöffnet')} />}
+      </div>
+        )}
     </div>
   )
 }
