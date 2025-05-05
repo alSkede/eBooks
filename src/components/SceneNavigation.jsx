@@ -6,15 +6,19 @@ export default function SceneNavigation() {
   const { currentIndex, setCurrentIndex } = useEbook()
 
   const prevScene = () => {
-    if (currentIndex > 0) setCurrentIndex(currentIndex - 1)
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1)
+    }
   }
 
   const nextScene = () => {
-    if (currentIndex < sceneData.length - 1) setCurrentIndex(currentIndex + 1)
+    if (currentIndex < sceneData.length - 1) {
+      setCurrentIndex(currentIndex + 1)
+    }
   }
 
   return (
-    <div className="button-group scene-navigation">
+    <>
       <button
         onClick={prevScene}
         className="button-secondary"
@@ -29,6 +33,6 @@ export default function SceneNavigation() {
       >
         ➡️ Weiter
       </button>
-    </div>
+    </>
   )
 }
