@@ -9,33 +9,25 @@ export default function SceneViewer() {
   if (!currentScene) return <div>⚠️ No scene loaded.</div>
 
   const { title, visual, narration, audio, quiz, museum, journal } = currentScene
+
   const combinedText = narration?.map(n => `${n.speaker}: ${n.text}`).join('\n\n')
 
   return (
     <div className="scene-viewer text-center p-4">
-      {/* 1. Titel */}
+      {/* 1. Title */}
       <h2>{title || 'Untitled Scene'}</h2>
 
-      {/* 2. Bild */}
+      {/* 2. Image */}
       {visual && (
         <div style={{ marginTop: '1rem' }}>
-          <img
-            src={visual}
-            alt="Scene visual"
-            style={{ maxWidth: '100%', borderRadius: '12px' }}
-          />
+          <img src={`/src/assets/${visual}`} alt="Scene visual" style={{ maxWidth: '100%', borderRadius: '12px' }} />
         </div>
       )}
 
       {/* 3. Audio */}
       {audio && (
         <div style={{ marginTop: '1rem' }}>
-          <audio
-            key={audio}
-            controls
-            preload="metadata"
-            style={{ maxWidth: '100%' }}
-          >
+          <audio controls preload="metadata" style={{ maxWidth: '100%' }}>
             <source src={audio} type="audio/mp4" />
             Your browser does not support the audio element.
           </audio>
@@ -50,16 +42,16 @@ export default function SceneViewer() {
       )}
 
       {/* 5. Navigation */}
-      <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '12px' }}>
+      <div style={{ marginTop: '1.5rem' }}>
         <SceneNavigation />
       </div>
 
       {/* 6. Icon Buttons */}
       {(quiz || museum || journal) && (
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '1rem' }}>
-          {quiz && <IconButton type="quiz" label="Quiz" onClick={() => alert('Quiz geöffnet')} />}
-          {museum && <IconButton type="museum" label="Museum" onClick={() => alert('Museum geöffnet')} />}
-          {journal && <IconButton type="journal" label="Journal" onClick={() => alert('Journal geöffnet')} />}
+          {quiz && <IconButton type="quiz" label="Quiz" onClick={() => alert('Quiz opened')} />}
+          {museum && <IconButton type="museum" label="Museum" onClick={() => alert('Museum opened')} />}
+          {journal && <IconButton type="journal" label="Journal" onClick={() => alert('Journal opened')} />}
         </div>
       )}
     </div>
