@@ -1,27 +1,13 @@
 import React from 'react'
 import SceneViewer from './SceneViewer'
-import SceneNavigation from './components/SceneNavigation'
-import IconButton from './components/IconButton'
 import './styles/buttonStyles.css'
 import './styles/iconButtonStyles.css'
-import './index.css' // nur wenn vorhanden
-
-import { useEbook } from './hooks/useEbook'
+import './index.css' // falls vorhanden
 
 export default function App() {
-  const { openQuiz, openMuseum, openJournal } = useFakeActions()
-
   return (
     <div className="p-4 text-center">
       <SceneViewer />
-
-      <SceneNavigation />
-
-      <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '1rem' }}>
-        <IconButton type="quiz" label="Quiz" onClick={openQuiz} />
-        <IconButton type="museum" label="Museum" onClick={openMuseum} />
-        <IconButton type="journal" label="Tagebuch" onClick={openJournal} />
-      </div>
     </div>
   )
 }
