@@ -1,5 +1,5 @@
 import React from "react";
-import tryllImage from "./_00_Tryll.png"; // relativer Pfad im gleichen Ordner
+import tryllImage from "./TK_Wiggle.png"; // relativer Pfad im gleichen Ordner
 
 export default function Start({ onStart }) {
   return (
