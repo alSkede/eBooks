@@ -12,7 +12,7 @@ export const sceneRegistry = {
       };
     }
     return {
-      hasQuiz: !!(quizData[sceneIndex] && Object.keys(quizData[sceneIndex]).length > 0)
+      hasQuiz: !!(quizData[sceneIndex] && Object.keys(quizData[sceneIndex]).length > 0),
       hasMuseum: !!(museumData[sceneIndex] && Object.keys(museumData[sceneIndex]).length > 0),
       hasJournal: !!(journalData[sceneIndex] && Object.keys(journalData[sceneIndex]).length > 0)
     };
