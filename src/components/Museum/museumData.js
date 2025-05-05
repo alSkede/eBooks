@@ -1,60 +1,50 @@
-export const journalData = {
-  2: {
-    prompt: "What motivates Tryll to follow the light?",
-    options: [
-      "Curiosity",
-      "Fear of staying",
-      "Trust in movement",
-      "Li Bäh's signal"
-    ]
+export const museumData = {
+  1: {
+    title: "The Puddle of Potential",
+    scene: "Scene 1",
+    tryll: "Origin. Soup. Soul bath.",
+    libaeh: "Organic amino-acid fluid. Recommend containment."
   },
-  4: {
-    prompt: "What would be a useful opposite of Tryll?",
-    options: [
-      "Stillness",
-      "Silence",
-      "Reversal",
-      "Li Bäh herself"
-    ]
+  3: {
+    title: "Fragment of Self",
+    scene: "Scene 3",
+    tryll: "A piece of someone’s dream.",
+    libaeh: "Recovered from subconscious debris."
   },
-  7: {
-    prompt: "Imagine what happened between scene 6 and 7.",
-    options: [
-      "Tryll and Li Bäh split minds",
-      "A dream overtook logic",
-      "Nothing. That was the point."
-    ]
+  5: {
+    title: "Fossil Brooch of Memory",
+    scene: "Scene 5",
+    tryll: "A wearable past.",
+    libaeh: "Abandoned exoskeletal fragment."
   },
-  10: {
-    prompt: "Why does the rock crack?",
-    options: [
-      "A buildup of thought",
-      "Li Bäh's touch",
-      "Tryll's refusal to accept"
-    ]
+  6: {
+    title: "The Breath of Thought",
+    scene: "Scene 6",
+    tryll: "An idea becoming airborne.",
+    libaeh: "Vacuum-sealed air. Possibly mucus vapor."
   },
-  13: {
-    prompt: "Tryll hesitates. What thought runs through him?",
-    options: [
-      "‘I was never here.’",
-      "‘Maybe she’s right.’",
-      "‘This again.’"
-    ]
+  9: {
+    title: "Anchor of Doubt",
+    scene: "Scene 9",
+    tryll: "Weighted certainty.",
+    libaeh: "Unverifiable but dense."
   },
-  16: {
-    prompt: "Complete the fragment: ‘Li Bäh stood like…’",
-    options: [
-      "…a thread pulled too tight",
-      "…a question turned away",
-      "…a yes waiting to happen"
-    ]
+  11: {
+    title: "Glass Loop of Intuition",
+    scene: "Scene 11",
+    tryll: "Time’s suggestion in shape.",
+    libaeh: "Unclear entrance. No exit."
+  },
+  14: {
+    title: "Thread of Parallel Thought",
+    scene: "Scene 14",
+    tryll: "May connect to unseen intentions.",
+    libaeh: "Warning: Unstable implications."
   },
   18: {
-    prompt: "What remains unsaid between Tryll and Li Bäh?",
-    options: [
-      "That they have become one another",
-      "That they are each alone",
-      "That no end is ever final"
-    ]
+    title: "Refracted Farewell",
+    scene: "Scene 18",
+    tryll: "A goodbye that came too early.",
+    libaeh: "Emotion crystallized and bent."
   }
 };
