@@ -20,7 +20,7 @@ export default function SceneViewer() {
       {/* 2. Image */}
       {visual && (
         <div style={{ marginTop: '1rem' }}>
-          <img src={`/src/assets/${visual}`} alt="Scene visual" style={{ maxWidth: '100%', borderRadius: '12px' }} />
+           <img src={visual} alt="Scene visual" style={{ maxWidth: '100%', borderRadius: '12px' }} />
         </div>
       )}
 
