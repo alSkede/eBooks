@@ -42,19 +42,19 @@ export default function SceneViewer() {
         </p>
       )}
 
-      {/* 5. Navigation */}
-      <div style={{ marginTop: '1.5rem' }}>
-        <SceneNavigation />
-      </div>
-
-      {/* 6. Icon Buttons */}
-      {(quiz || museum || journal) && (
-        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '1rem' }}>
-          {quiz && <IconButton type="quiz" label="Quiz" onClick={() => alert('Quiz opened')} />}
-          {museum && <IconButton type="museum" label="Museum" onClick={() => alert('Museum opened')} />}
-          {journal && <IconButton type="journal" label="Journal" onClick={() => alert('Journal opened')} />}
+      {/* 5. Szene-Navigation */}
+        <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '12px' }}>
+          <SceneNavigation />
         </div>
-      )}
+
+       {/* Icon Buttons */}
+       {(quiz || museum || journal) && (
+          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '1rem' }}>
+          {quiz && <IconButton type="quiz" label="Quiz" onClick={() => alert('Quiz geöffnet')} />}
+          {museum && <IconButton type="museum" label="Museum" onClick={() => alert('Museum geöffnet')} />}
+          {journal && <IconButton type="journal" label="Journal" onClick={() => alert('Journal geöffnet')} />}
+         </div>
+        )}
     </div>
   )
 }
