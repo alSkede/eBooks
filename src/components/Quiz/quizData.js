@@ -1,36 +1,46 @@
 export const quizData = {
-  3: {
-    tryll: {
-      prompt: "He became two… but they were both the same idea in different moods!",
+  4: {
+    logic: {
+      question: "What is the logical conclusion of becoming your own opposite?",
       options: [
-        "Mitosis as emotional mirroring",
-        "One cell apologized to itself",
-        "Identity got bored"
+        "They are more A",
+        "They are less A",
+        "They are ∞A"
       ],
-      correct: 0
-    },
+      solutionIndex: 2
+    }
+  },
+
+  5: {
     reality: {
-      prompt: "What is true about mitosis?",
+      question: "What is true about mitosis?",
       options: [
         "Single cells divide this way",
         "Protozoa name themselves Greg",
         "Emotions trigger replication"
       ],
-      correct: 0
-    },
-    logic: {
-      prompt: "If A splits into A and A…",
-      options: [
-        "They are more A",
-        "They are less A",
-        "They are ∞A"
+      solutionIndex: 0
+    }
+  },
+
+  6: {
+    tryll: {
+      prompt: "He became two… but they were both the same idea in different moods!",
+      choices: [
+        "Mitosis as emotional mirroring",
+        "One cell apologized to itself",
+        "Identity got bored"
       ]
-    },
+    }
+  },
+
+  7: {
     creation: {
       prompt: "Invent the next evolution!",
       options: [
-        "A cloud that forgets itself",
-        "A chair that dreams"
+        "Photosynthetic dogs",
+        "Meme-based lifeforms",
+        "Silicon empathy circuits"
       ]
     }
   }
