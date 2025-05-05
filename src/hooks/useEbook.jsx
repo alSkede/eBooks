@@ -8,17 +8,9 @@ export function EbookProvider({ children }) {
 
   const currentScene = sceneData[currentIndex]
 
-  const nextScene = () => {
-    setCurrentIndex((prev) => Math.min(prev + 1, sceneData.length - 1))
-  }
-
-  const prevScene = () => {
-    setCurrentIndex((prev) => Math.max(prev - 1, 0))
-  }
-
   return (
     <EbookContext.Provider
-      value={{ currentIndex, currentScene, nextScene, prevScene }}
+      value={{ currentIndex, setCurrentIndex, currentScene }}
     >
       {children}
     </EbookContext.Provider>
@@ -26,9 +18,5 @@ export function EbookProvider({ children }) {
 }
 
 export function useEbook() {
-  const context = useContext(EbookContext)
-  if (!context) {
-    throw new Error('useEbook must be used within an EbookProvider')
-  }
-  return context
+  return useContext(EbookContext)
 }
