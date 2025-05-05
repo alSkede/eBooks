@@ -2,14 +2,20 @@ import React from 'react';
 import { useEbook } from './hooks/useEbook';
 import SceneNavigation from './components/SceneNavigation';
 import IconButton from './components/IconButton';
+import { quizData } from './components/Quiz/quizData';
+import { museumData } from './components/Museum/museumData';
 
 export default function SceneViewer({ onOpenMuseum, onOpenQuiz, onOpenJournal }) {
-  const { currentScene } = useEbook();
+  const { currentScene, currentSceneIndex } = useEbook();
 
   if (!currentScene) return <div>⚠️ No scene loaded.</div>;
 
-  const { title, visual, narration, audio, quiz, museum, journal } = currentScene;
+  const { title, visual, narration, audio } = currentScene;
   const combinedText = narration?.map(n => `${n.speaker}: ${n.text}`).join('\n\n');
+
+  const hasQuiz = quizData[currentSceneIndex];
+  const hasMuseum = museumData[currentSceneIndex];
+  const hasJournal = true; // Immer verfügbar oder später dynamisch machen
 
   return (
     <div className="scene-viewer text-center p-4">
@@ -20,6 +26,7 @@ export default function SceneViewer({ onOpenMuseum, onOpenQuiz, onOpenJournal })
           src={visual}
           alt="Scene visual"
           className="mx-auto rounded-xl my-4 max-w-full"
+          style={{ maxHeight: '400px', objectFit: 'contain' }}
         />
       )}
 
@@ -44,11 +51,11 @@ export default function SceneViewer({ onOpenMuseum, onOpenQuiz, onOpenJournal })
         <SceneNavigation />
       </div>
 
-      {(quiz || museum || journal) && (
+      {(hasQuiz || hasMuseum || hasJournal) && (
         <div className="flex justify-center gap-4 mt-4">
-          {quiz && <IconButton type="quiz" label="Quiz" onClick={onOpenQuiz} />}
-          {museum && <IconButton type="museum" label="Museum" onClick={onOpenMuseum} />}
-          {journal && <IconButton type="journal" label="Journal" onClick={onOpenJournal} />}
+          {hasQuiz && <IconButton type="quiz" label="Quiz" onClick={onOpenQuiz} />}
+          {hasMuseum && <IconButton type="museum" label="Museum" onClick={onOpenMuseum} />}
+          {hasJournal && <IconButton type="journal" label="Journal" onClick={onOpenJournal} />}
         </div>
       )}
     </div>
