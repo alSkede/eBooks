@@ -4,11 +4,13 @@ import tryllImage from "./TK_Wiggle.png"; // relativer Pfad im gleichen Ordner
 export default function Start({ onStart }) {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white p-6 text-center">
-      <img
-        src={tryllImage}
-        alt="Tryll & Li Bäh"
-        className="max-w-full max-h-[400px] mb-8 rounded-xl shadow"
-      />
+    <img
+      src={tryllImage}
+      alt="Tryll & Li Bäh"
+      className="mx-auto rounded-xl my-4 max-w-full"
+      style={{ maxHeight: '400px', objectFit: 'contain' }}
+    />
+
       <h1 className="text-3xl font-bold mb-4">Willkommen bei Tryll & Li Bäh</h1>
       <p className="text-gray-600 mb-6 max-w-xl">
         Eine interaktive Reise durch Ideen, Fragen und überraschende Bedeutungen.
