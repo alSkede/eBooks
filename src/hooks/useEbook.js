@@ -1,13 +1,25 @@
-import { useState } from "react";
-import { sceneData } from "../data/sceneDataFull"; // ggf. Pfad anpassen
+import React, { createContext, useContext, useState } from "react";
+import { sceneData } from "../data/sceneDataFull"; // Pfad ggf. anpassen
 
-export function useEbook() {
+const EbookContext = createContext();
+
+export function EbookProvider({ children }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const currentScene = sceneData[currentIndex] ?? null;
 
-  return {
-    currentSceneIndex: currentIndex,
-    currentScene,
-    setCurrentSceneIndex: setCurrentIndex
-  };
+  return (
+    <EbookContext.Provider
+      value={{
+        currentSceneIndex: currentIndex,
+        currentScene,
+        setCurrentSceneIndex: setCurrentIndex
+      }}
+    >
+      {children}
+    </EbookContext.Provider>
+  );
+}
+
+export function useEbook() {
+  return useContext(EbookContext);
 }
