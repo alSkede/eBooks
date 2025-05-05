@@ -27,7 +27,7 @@ export default function SceneViewer() {
       {/* 3. Audio */}
       {audio && (
         <div style={{ marginTop: '1rem' }}>
-          <audio controls preload="metadata" style={{ maxWidth: '100%' }}>
+          <audio key={audio} controls preload="metadata" style={{ maxWidth: '100%' }}>
             <source src={audio} type="audio/mp4" />
             Your browser does not support the audio element.
           </audio>
