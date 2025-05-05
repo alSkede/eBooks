@@ -5,6 +5,12 @@ export const museumData = {
     tryll: "Origin. Soup. Soul bath.",
     libaeh: "Organic amino-acid fluid. Recommend containment."
   },
+  3: {
+    title: "Fragment of Self",
+    scene: "Scene 3",
+    tryll: "A piece of someone’s dream.",
+    libaeh: "Recovered from subconscious debris."
+  },
   5: {
     title: "Fossil Brooch of Memory",
     scene: "Scene 5",
@@ -17,16 +23,28 @@ export const museumData = {
     tryll: "An idea becoming airborne.",
     libaeh: "Vacuum-sealed air. Possibly mucus vapor."
   },
-  8: {
-    title: "The Fruit of Ambiguity",
-    scene: "Scene 8",
-    tryll: "He meant to throw it, or mean something with it.",
-    libaeh: "Projectile. Not a philosophy."
+  9: {
+    title: "Anchor of Doubt",
+    scene: "Scene 9",
+    tryll: "Weighted certainty.",
+    libaeh: "Unverifiable but dense."
   },
-  10: {
-    title: "The Cracked Rock",
-    scene: "Scene 10",
-    tryll: "The First ‘Why Not?’ Ever Thrown.",
-    libaeh: "Granite. Not sapient."
+  11: {
+    title: "Glass Loop of Intuition",
+    scene: "Scene 11",
+    tryll: "Time’s suggestion in shape.",
+    libaeh: "Unclear entrance. No exit."
+  },
+  14: {
+    title: "Thread of Parallel Thought",
+    scene: "Scene 14",
+    tryll: "May connect to unseen intentions.",
+    libaeh: "Warning: Unstable implications."
+  },
+  18: {
+    title: "Refracted Farewell",
+    scene: "Scene 18",
+    tryll: "A goodbye that came too early.",
+    libaeh: "Emotion crystallized and bent."
   }
 };
