@@ -7,6 +7,9 @@ import { sceneRegistry } from './sceneRegistry';
 export default function SceneViewer({ onOpenMuseum, onOpenQuiz, onOpenJournal }) {
   const { currentScene, currentSceneIndex } = useEbook();
 
+console.log("sceneIndex:", currentSceneIndex);
+console.log("scene features:", sceneRegistry.getSceneFeatures(currentSceneIndex));
+  
   if (!currentScene) return <div>⚠️ No scene loaded.</div>;
 
   const { title, visual, narration, audio } = currentScene;
