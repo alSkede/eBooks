@@ -1,4 +1,3 @@
-import React from "react";
 import { useEbook } from "../../hooks/useEbook";
 import { journalData } from "./journalData";
 import ReaderCreation from "../InteractionModules/ReaderCreation";
