@@ -11,6 +11,7 @@ export const sceneRegistry = {
         hasJournal: false
       };
     }
+
     return {
       hasQuiz: !!(quizData[sceneIndex] && Object.keys(quizData[sceneIndex]).length > 0),
       hasMuseum: !!(museumData[sceneIndex] && Object.keys(museumData[sceneIndex]).length > 0),
