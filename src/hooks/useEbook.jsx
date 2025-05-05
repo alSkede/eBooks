@@ -8,11 +8,13 @@ export function EbookProvider({ children }) {
   const currentScene = sceneData[currentIndex] ?? null;
 
   return (
-    <EbookContext.Provider value={{
-      currentSceneIndex: currentIndex,
-      currentScene,
-      setCurrentSceneIndex: setCurrentIndex
-    }}>
+    <EbookContext.Provider
+      value={{
+        currentSceneIndex: currentIndex,
+        currentScene,
+        setCurrentSceneIndex: setCurrentIndex
+      }}
+    >
       {children}
     </EbookContext.Provider>
   );
