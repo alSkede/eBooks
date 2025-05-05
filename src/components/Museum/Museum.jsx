@@ -1,4 +1,4 @@
-import { Card, CardContent } from "../ui/card";
+import { Card, CardContent } from "../../ui/card";
 import { useEbook } from "../../hooks/useEbook";
 import { museumData } from "./museumData";
 
