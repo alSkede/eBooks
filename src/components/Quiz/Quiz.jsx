@@ -1,5 +1,5 @@
-import { quizData } from "./quizData";
 import { useEbook } from "../../hooks/useEbook";
+import { quizData } from "./quizData";
 import TryllMeaningMoment from "../InteractionModules/TryllMeaningMoment";
 import RealityCheck from "../InteractionModules/RealityCheck";
 import LogicTrap from "../InteractionModules/LogicTrap";
@@ -13,10 +13,10 @@ export default function Quiz() {
 
   return (
     <div className="space-y-8 p-4">
-      <TryllMeaningMoment {...data.tryll} />
-      <RealityCheck {...data.reality} />
-      <LogicTrap {...data.logic} />
-      <ReaderCreation {...data.creation} />
+      {data.tryll && <TryllMeaningMoment {...data.tryll} />}
+      {data.reality && <RealityCheck {...data.reality} />}
+      {data.logic && <LogicTrap {...data.logic} />}
+      {data.creation && <ReaderCreation {...data.creation} />}
     </div>
   );
 }
