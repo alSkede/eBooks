@@ -15,7 +15,6 @@ export default function Museum() {
       <Card className="shadow-xl border-l-4 border-rose-400">
         <CardContent className="p-4">
           <h2 className="text-xl font-semibold">{item.title}</h2>
-          <p className="text-sm text-muted-foreground italic">{item.scene}</p>
           <div className="mt-3">
             <p><strong>Tryll’s Label:</strong> {item.tryll}</p>
             <p className="text-sm text-gray-600"><strong>Li Bäh’s Note:</strong> {item.libaeh}</p>
