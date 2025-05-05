@@ -51,7 +51,7 @@ export default function SceneViewer({ onOpenMuseum, onOpenQuiz }) {
          {museum && <IconButton type="museum" label="Museum" onClick={onOpenMuseum} />}
          {journal && <IconButton type="journal" label="Journal" onClick={() => alert('Journal geöffnet')} />}
        </div>
-       )}
+    )}
     </div>
   )
 }
