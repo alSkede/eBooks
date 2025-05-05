@@ -17,13 +17,11 @@ export default function SceneViewer() {
       
       {/* 1. Title */}
       <h2>{title || 'Untitled Scene'}</h2>
-      <p> Aktuelle Szene: {currentScene?.id}</p>
       
       {/* 2. Image */}
       {visual && (
         <div style={{ marginTop: '1rem' }}>
            <img src={visual} alt="Scene visual" style={{ maxWidth: '100%', borderRadius: '12px' }} />
-           <p> Bildpfad: {visual}</p>
         </div>
       )}
 
