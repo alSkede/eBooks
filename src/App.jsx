@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import SceneViewer from './SceneViewer'
 import { Card, CardContent } from "./components/ui/card";
-import { Separator } from "./components/ui/separator";
 import './styles/buttonStyles.css'
 import './styles/iconButtonStyles.css'
 import './index.css'
