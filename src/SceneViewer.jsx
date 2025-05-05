@@ -14,20 +14,22 @@ export default function SceneViewer() {
 
   return (
     <div className="scene-viewer text-center p-4">
+      
       {/* 1. Title */}
       <h2>{title || 'Untitled Scene'}</h2>
       <p> Aktuelle Szene: {currentScene?.id}</p>
+      
       {/* 2. Image */}
       {visual && (
         <div style={{ marginTop: '1rem' }}>
-          <img src={`/src/assets/${visual}`} alt="Scene visual" style={{ maxWidth: '100%', borderRadius: '12px' }} />
+           <img src={visual} alt="Scene visual" style={{ maxWidth: '100%', borderRadius: '12px' }} />
         </div>
       )}
 
       {/* 3. Audio */}
       {audio && (
         <div style={{ marginTop: '1rem' }}>
-          <audio controls preload="metadata" style={{ maxWidth: '100%' }}>
+          <audio key={audio} controls preload="metadata" style={{ maxWidth: '100%' }}>
             <source src={audio} type="audio/mp4" />
             Your browser does not support the audio element.
           </audio>
