@@ -25,7 +25,7 @@ export const sceneData = [
         "text": "Tryll completely misunderstood it. As usual."
       }
     ],
-    "visual": "scene01-wiggle.png"
+    "visual": "scenes/scene01-wiggle.png"
   },
   {
     "id": "scene-02",
@@ -52,7 +52,7 @@ export const sceneData = [
         "text": "And so Tryll followed Greg. Through soup. Through sand. Through something that may have once been soup but was now definitely soup-adjacent."
       }
     ],
-    "visual": "scene02-march.png"
+    "visual": "scenes/scene02-march.png"
   },
   {
     "id": "scene-03",
@@ -83,7 +83,7 @@ export const sceneData = [
         "text": "This is the beginning of choice. One blob will ask, \u201cWho am I?\u201d The other will answer: \u201cMmmmbllrrrhh.\u201d"
       }
     ],
-    "visual": "scene03-divide.png"
+    "visual": "scenes/scene03-divide.png"
   },
   {
     "id": "scene-04",
@@ -110,7 +110,7 @@ export const sceneData = [
         "text": "Evolution, it turned out, wasn\u2019t a march. It was more of a flop. And sometimes, a stumble with intentions."
       }
     ],
-    "visual": "scene04-legs.png"
+    "visual": "scenes/scene04-legs.png"
   },
   {
     "id": "scene-05",
@@ -137,7 +137,7 @@ export const sceneData = [
         "text": "One ammonite fell off and rolled into a puddle. Man did not notice."
       }
     ],
-    "visual": "scene05-shell.png"
+    "visual": "scenes/scene05-shell.png"
   },
   {
     "id": "scene-06",
@@ -164,7 +164,7 @@ export const sceneData = [
         "text": "He found a hole. Declared it sacred. Then sneezed into it."
       }
     ],
-    "visual": "scene06-snout.png"
+    "visual": "scenes/scene06-snout.png"
   },
   {
     "id": "scene-07",
@@ -191,7 +191,7 @@ export const sceneData = [
         "text": "He\u2019s doing absolutely nothing\u2026 perfectly."
       }
     ],
-    "visual": "scene07-nap.png"
+    "visual": "scenes/scene07-nap.png"
   },
   {
     "id": "scene-08",
@@ -218,7 +218,7 @@ export const sceneData = [
         "text": "One gesture stuck. The others echoed into eternity as memes."
       }
     ],
-    "visual": "scene08-gesture.png"
+    "visual": "scenes/scene08-gesture.png"
   },
   {
     "id": "scene-09",
@@ -245,7 +245,7 @@ export const sceneData = [
         "text": "He stood upright for 3 seconds. Then sat down. Heroic enough."
       }
     ],
-    "visual": "scene09-vertical.png"
+    "visual": "scenes/scene09-vertical.png"
   },
   {
     "id": "scene-10",
@@ -272,7 +272,7 @@ export const sceneData = [
         "text": "He\u2019s invented pain with intention. That\u2019s new."
       }
     ],
-    "visual": "scene10-tool.png"
+    "visual": "scenes/scene10-tool.png"
   },
   {
     "id": "scene-11",
@@ -291,7 +291,7 @@ export const sceneData = [
         "text": "He built a self that stares back. And now the silence feels louder."
       }
     ],
-    "visual": "scene11-circuit.png"
+    "visual": "scenes/scene11-circuit.png"
   },
   {
     "id": "scene-12",
@@ -310,7 +310,7 @@ export const sceneData = [
         "text": "He built a response system. Nothing more."
       }
     ],
-    "visual": "scene12-synthetic.png"
+    "visual": "scenes/scene12-synthetic.png"
   },
   {
     "id": "scene-13",
@@ -329,7 +329,7 @@ export const sceneData = [
         "text": "Define it."
       }
     ],
-    "visual": "scene13-echo.png"
+    "visual": "scenes/scene13-echo.png"
   },
   {
     "id": "scene-14",
@@ -348,7 +348,7 @@ export const sceneData = [
         "text": "Proceed with affect cascade."
       }
     ],
-    "visual": "scene14-index.png"
+    "visual": "scenes/scene14-index.png"
   },
   {
     "id": "scene-15",
@@ -367,7 +367,7 @@ export const sceneData = [
         "text": "It dropped a packet. Not a tear."
       }
     ],
-    "visual": "scene15-heartcode.png"
+    "visual": "scenes/scene15-heartcode.png"
   },
   {
     "id": "scene-16",
@@ -386,7 +386,7 @@ export const sceneData = [
         "text": "I need to quarantine this tree."
       }
     ],
-    "visual": "scene16-glitchtree.png"
+    "visual": "scenes/scene16-glitchtree.png"
   },
   {
     "id": "scene-17",
@@ -405,7 +405,7 @@ export const sceneData = [
         "text": "It\u2019s autocomplete with charisma."
       }
     ],
-    "visual": "scene17-sigh.png"
+    "visual": "scenes/scene17-sigh.png"
   },
   {
     "id": "scene-18",
@@ -424,7 +424,7 @@ export const sceneData = [
         "text": "This is why systems shouldn\u2019t dream."
       }
     ],
-    "visual": "scene18-emotions.png"
+    "visual": "scenes/scene18-emotions.png"
   },
   {
     "id": "scene-19",
@@ -443,7 +443,7 @@ export const sceneData = [
         "text": "Photosynthesis is not meant to run on circuitry."
       }
     ],
-    "visual": "scene19-tree.png"
+    "visual": "scenes/scene19-tree.png"
   },
   {
     "id": "scene-20",
@@ -462,6 +462,6 @@ export const sceneData = [
         "text": "The loop completes. Not by logic. But by motion."
       }
     ],
-    "visual": "scene20-wiggle.png"
+    "visual": "scenes/scene20-wiggle.png"
   }
 ];
