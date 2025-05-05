@@ -1,50 +1,31 @@
-// components/InteractionModules/TryllMeaningMoment.js
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 
-const TryllMeaningMoment = ({ prompt, options, correct }) => {
+export default function TryllMeaningMoment({ prompt, choices }) {
   const [selected, setSelected] = useState(null);
-  const [revealed, setRevealed] = useState(false);
-
-  const handleClick = (index) => {
-    if (!revealed) {
-      setSelected(index);
-      setRevealed(true);
-    }
-  };
 
   return (
-    <div className="bg-orange-50 border-l-4 border-orange-400 p-4 rounded-xl shadow-md">
-      <h3 className="text-lg font-semibold text-orange-800 mb-2">🎭 Tryll’s Thought</h3>
-      <p className="text-gray-700 italic mb-4">“{prompt}”</p>
-      <div className="space-y-2">
-        {options.map((option, index) => (
-          <motion.button
-            key={index}
-            onClick={() => handleClick(index)}
-            whileTap={{ scale: 0.95 }}
-            className={`w-full text-left px-4 py-2 rounded-lg border transition duration-300
-              ${revealed
-                ? index === correct
-                  ? "bg-green-100 border-green-400 text-green-800"
-                  : index === selected
-                  ? "bg-red-100 border-red-400 text-red-800"
-                  : "bg-white border-gray-300 text-gray-600"
-                : "bg-white border-gray-300 hover:bg-orange-100"}`}
-          >
-            {option}
-          </motion.button>
+    <div className="border-l-4 border-purple-400 bg-purple-50 p-4 rounded-xl shadow">
+      <h3 className="text-lg font-semibold text-purple-800 mb-2">🌀 Tryll's Meaning Moment</h3>
+      <p className="mb-3 italic text-gray-700">{prompt}</p>
+      <ul className="space-y-2">
+        {choices.map((choice, idx) => (
+          <li key={idx}>
+            <button
+              onClick={() => setSelected(idx)}
+              className={`w-full text-left px-4 py-2 rounded-lg border
+                ${selected === idx ? "bg-purple-100 border-purple-500" : "bg-white border-gray-300"}
+                hover:bg-purple-50`}
+            >
+              {choice}
+            </button>
+          </li>
         ))}
-      </div>
-      {revealed && (
-        <p className="mt-4 text-sm text-gray-500">
-          {selected === correct
-            ? "🌟 Tryll flutters approvingly. You’ve felt the meaning."
-            : "🤷‍♀️ Tryll tilts her head. Close, but the wiggle wiggled elsewhere."}
+      </ul>
+      {selected !== null && (
+        <p className="mt-3 text-sm text-gray-600">
+          You selected: {choices[selected]}
         </p>
       )}
     </div>
   );
-};
-
-export default TryllMeaningMoment;
+}
