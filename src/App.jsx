@@ -14,6 +14,8 @@ export default function App() {
   const [showQuiz, setShowQuiz] = useState(false);
   const [showJournal, setShowJournal] = useState(false);
 
+  console.log("📘 Aktueller Zustand: showStart =", showStart);
+
   if (showStart) {
     return <Start onStart={() => setShowStart(false)} />;
   }
