@@ -30,3 +30,9 @@ export const museumData = {
     libaeh: "Granite. Not sapient."
   }
 };
+
+function Museum() {
+  // dein JSX
+}
+
+export default Museum;
