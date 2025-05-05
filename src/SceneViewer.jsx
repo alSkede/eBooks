@@ -23,6 +23,7 @@ export default function SceneViewer() {
       {visual && (
         <div style={{ marginTop: '1rem' }}>
            <img src={visual} alt="Scene visual" style={{ maxWidth: '100%', borderRadius: '12px' }} />
+           <p> Bildpfad: {visual}</p>
         </div>
       )}
 
