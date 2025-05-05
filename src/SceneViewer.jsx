@@ -5,6 +5,7 @@ import IconButton from './components/IconButton'
 
 export default function SceneViewer() {
   const { currentScene } = useEbook()
+  <p> Aktuelle Szene: {currentScene?.id}</p>
 
   if (!currentScene) return <div>⚠️ No scene loaded.</div>
 
