@@ -1,24 +1,29 @@
 export const journalData = {
   3: {
-    prompt: "What did Li Bäh forget to say when Tryll split into two?",
+    prompt: "Wie reagiert Tryll auf den plötzlichen Sinneswandel von Li Bäh?",
     options: [
-      "That both selves were right",
-      "That neither one could cook",
-      "That he missed the silence"
+      "Er ignoriert sie.",
+      "Er versucht, die Situation zu verstehen.",
+      "Er wird selbst wütend.",
+      "Er geht auf Abstand, aber bleibt neugierig."
     ]
   },
   6: {
-    prompt: "Tryll thought a breath could hold a thought. Add one.",
+    prompt: "Welche Bedeutung hat der aufsteigende Ton in dieser Szene?",
     options: [
-      "A laugh that rhymes",
-      "An apology in vapor",
-      "A whisper asking to be inhaled"]
+      "Ein Zeichen innerer Reifung.",
+      "Ein akustischer Fehler.",
+      "Ein Verweis auf etwas Unsichtbares.",
+      "Der Beginn einer Veränderung."
+    ]
   },
   10: {
-    prompt: "The cracked rock made a sound. What did it mean?",
+    prompt: "Was bedeutet es, dass die Schale zerbricht?",
     options: [
-      "Why not?",
-      "Yes, again",
-      "I was whole once"]
+      "Das Ende eines Spiels.",
+      "Die Offenbarung einer Wahrheit.",
+      "Ein emotionaler Kontrollverlust.",
+      "Der Beginn einer Rückkehr."
+    ]
   }
 };
