@@ -9,14 +9,19 @@ export default function Quiz() {
   const { currentSceneIndex } = useEbook();
   const data = quizData[currentSceneIndex];
 
-  if (!data) return <p className="text-center text-gray-500">No quiz for this scene.</p>;
+  const isValid = (part) =>
+    part && typeof part === "object" && Object.keys(part).length > 0;
+
+  if (!isValid(data)) {
+    return <p className="text-center text-gray-500">No quiz for this scene.</p>;
+  }
 
   return (
     <div className="space-y-8 p-4">
-      {data.tryll && Object.keys(data.tryll).length > 0 && <TryllMeaningMoment {...data.tryll} />}
-      {data.reality && Object.keys(data.reality).length > 0 && <RealityCheck {...data.reality} />}
-      {data.logic && Object.keys(data.logic).length > 0 && <LogicTrap {...data.logic} />}
-      {data.creation && Object.keys(data.creation).length > 0 && <ReaderCreation {...data.creation} />}
+      {isValid(data.tryll) && <TryllMeaningMoment {...data.tryll} />}
+      {isValid(data.reality) && <RealityCheck {...data.reality} />}
+      {isValid(data.logic) && <LogicTrap {...data.logic} />}
+      {isValid(data.creation) && <ReaderCreation {...data.creation} />}
     </div>
   );
 }
