@@ -1,5 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Card, CardContent } from "../ui/card";
 
 const museumItems = [
   {
@@ -38,7 +37,7 @@ export default function Museum() {
   return (
     <div className="p-4 space-y-6">
       <h1 className="text-2xl font-bold text-center">Tryll’s Museum of Accidental Brilliance</h1>
-      <Separator className="my-4" />
+      <hr className="my-4 border-t border-gray-300" />
       {museumItems.map((item, index) => (
         <Card key={index} className="shadow-xl border-l-4 border-rose-400">
           <CardContent className="p-4">
