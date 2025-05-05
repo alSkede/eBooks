@@ -4,7 +4,7 @@ import { journalData } from "./components/Journal/journalData";
 
 export const sceneRegistry = {
   getSceneFeatures(sceneIndex) {
-    if (typeof sceneIndex !== "number" || isNaN(sceneIndex)) {
+    if (!Number.isInteger(sceneIndex)) {
       return {
         hasQuiz: false,
         hasMuseum: false,
@@ -13,9 +13,17 @@ export const sceneRegistry = {
     }
 
     return {
-      hasQuiz: !!(quizData[sceneIndex] && Object.keys(quizData[sceneIndex]).length > 0),
-      hasMuseum: !!(museumData[sceneIndex] && Object.keys(museumData[sceneIndex]).length > 0),
-      hasJournal: !!(journalData[sceneIndex] && Object.keys(journalData[sceneIndex]).length > 0)
+      hasQuiz:
+        Object.prototype.hasOwnProperty.call(quizData, sceneIndex) &&
+        Object.keys(quizData[sceneIndex]).length > 0,
+
+      hasMuseum:
+        Object.prototype.hasOwnProperty.call(museumData, sceneIndex) &&
+        Object.keys(museumData[sceneIndex]).length > 0,
+
+      hasJournal:
+        Object.prototype.hasOwnProperty.call(journalData, sceneIndex) &&
+        Object.keys(journalData[sceneIndex]).length > 0
     };
   }
 };
