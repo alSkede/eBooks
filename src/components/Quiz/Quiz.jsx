@@ -13,10 +13,10 @@ export default function Quiz() {
 
   return (
     <div className="space-y-8 p-4">
-      {data.tryll && <TryllMeaningMoment {...data.tryll} />}
-      {data.reality && <RealityCheck {...data.reality} />}
-      {data.logic && <LogicTrap {...data.logic} />}
-      {data.creation && <ReaderCreation {...data.creation} />}
+      {data.tryll && Object.keys(data.tryll).length > 0 && <TryllMeaningMoment {...data.tryll} />}
+      {data.reality && Object.keys(data.reality).length > 0 && <RealityCheck {...data.reality} />}
+      {data.logic && Object.keys(data.logic).length > 0 && <LogicTrap {...data.logic} />}
+      {data.creation && Object.keys(data.creation).length > 0 && <ReaderCreation {...data.creation} />}
     </div>
   );
 }
