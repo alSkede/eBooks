@@ -45,13 +45,13 @@ export default function SceneViewer({ onOpenMuseum, onOpenQuiz }) {
         <SceneNavigation />
       </div>
 
-     {(quiz || museum || journal) && (
-       <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '1rem' }}>
-         {quiz && <IconButton type="quiz" label="Quiz" onClick={onOpenQuiz} />}
-         {museum && <IconButton type="museum" label="Museum" onClick={onOpenMuseum} />}
-         {journal && <IconButton type="journal" label="Journal" onClick={() => alert('Journal geöffnet')} />}
-      </div>
-    )}
+      {(quiz || museum || journal) && (
+        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '1rem' }}>
+          {quiz && <IconButton type="quiz" label="Quiz" onClick={onOpenQuiz} />}
+          {museum && <IconButton type="museum" label="Museum" onClick={onOpenMuseum} />}
+          {journal && <IconButton type="journal" label="Journal" onClick={() => alert('Journal geöffnet')} />}
+        </div>
+      )}
     </div>
   )
 }
