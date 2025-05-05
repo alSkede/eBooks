@@ -2,8 +2,7 @@ import React from 'react';
 import { useEbook } from './hooks/useEbook';
 import SceneNavigation from './components/SceneNavigation';
 import IconButton from './components/IconButton';
-import { quizData } from './components/Quiz/quizData';
-import { museumData } from './components/Museum/museumData';
+import { sceneRegistry } from './sceneRegistry';
 
 export default function SceneViewer({ onOpenMuseum, onOpenQuiz, onOpenJournal }) {
   const { currentScene, currentSceneIndex } = useEbook();
@@ -13,9 +12,7 @@ export default function SceneViewer({ onOpenMuseum, onOpenQuiz, onOpenJournal })
   const { title, visual, narration, audio } = currentScene;
   const combinedText = narration?.map(n => `${n.speaker}: ${n.text}`).join('\n\n');
 
-  const hasQuiz = quizData[currentSceneIndex];
-  const hasMuseum = museumData[currentSceneIndex];
-  const hasJournal = true; // Immer verfügbar oder später dynamisch machen
+  const { hasQuiz, hasMuseum, hasJournal } = sceneRegistry.getSceneFeatures(currentSceneIndex);
 
   return (
     <div className="scene-viewer text-center p-4">
