@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/eBooks/Wiggle/',
   build: {
-    outDir: 'dist',
-  },
-  base: './'
+    outDir: 'dist'
+  }
 })
