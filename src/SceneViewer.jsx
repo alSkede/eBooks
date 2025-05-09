@@ -9,7 +9,7 @@ export default function SceneViewer({ onOpenMuseum, onOpenQuiz, onOpenJournal })
 
   if (!currentScene || typeof currentSceneIndex !== 'number') return <div>⚠️ No scene loaded.</div>;
 
-  const { title, visual, narration, audio } = currentScene;
+  const { id, title, visual, narration, audio } = currentScene;
   const combinedText = narration?.map(n => `${n.speaker}: ${n.text}`).join('\n\n');
 
   const { hasQuiz, hasMuseum, hasJournal } = sceneRegistry.getSceneFeatures(currentSceneIndex);
@@ -20,6 +20,7 @@ export default function SceneViewer({ onOpenMuseum, onOpenQuiz, onOpenJournal })
 
       {visual && (
         <img
+          key={id}
           src={visual}
           alt="Scene visual"
           className="mx-auto rounded-xl my-4 max-w-full"
@@ -29,7 +30,7 @@ export default function SceneViewer({ onOpenMuseum, onOpenQuiz, onOpenJournal })
 
       {audio && (
         <audio
-          key={audio}
+          key={id}
           controls
           preload="metadata"
           className="mx-auto my-4 w-full max-w-md"
