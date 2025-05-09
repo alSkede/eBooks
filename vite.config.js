@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/html/eBooks/Wiggle/',        // exakt wie URL!
   build: {
-    outDir: 'eBooks/Wiggle',           // jetzt nicht mehr „dist“!
+    outDir: 'dist',           // jetzt nicht mehr „dist“!
     emptyOutDir: true
   }
 })
