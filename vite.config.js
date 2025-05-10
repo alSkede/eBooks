@@ -1,11 +1,18 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import path from 'path'
 
 export default defineConfig({
+  base: '/html/eBooks/Wiggle/',
   plugins: [react()],
-  base: '/html/eBooks/Wiggle/',        // exakt wie URL!
+  resolve: {
+    alias: {
+      '@scenes': path.resolve(__dirname, 'public/scenes'),
+      '@audio': path.resolve(__dirname, 'public/audio')
+    }
+  },
   build: {
-    outDir: 'dist',           // jetzt nicht mehr „dist“!
+    outDir: 'dist',
     emptyOutDir: true
   }
 })
