@@ -1,5 +1,6 @@
 import Start from "./pages/Start";
 import React, { useState } from 'react';
+import { sceneData } from './data/generateSceneData.js';
 import SceneViewer from './SceneViewer';
 import Museum from './components/Museum/Museum';
 import Quiz from './components/Quiz/Quiz';
