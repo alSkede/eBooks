@@ -1,38 +1,68 @@
-function getImagePath(path) {
-  // Wenn der Pfad schon mit '/' beginnt, ist er fertig
-  if (path.startsWith('/')) {
-    return path; // Keine Änderung nötig
-  }
+import React from 'react'
+import { useEbook } from './hooks/useEbook'
+import SceneNavigation from './components/SceneNavigation'
+import IconButton from './components/IconButton'
 
-  // Wenn der Pfad noch keinen Slash hat, füge "scene-images/" hinzu
-  if (!path.includes('/')) {
-    return `/scene-images/${path}`;
-  }
+export default function SceneViewer({ onOpenQuiz, onOpenMuseum, onOpenJournal }) {
+  const { currentScene } = useEbook()
 
-  // Sonst: Standardmäßig sicherstellen, dass ein / davor ist
-  return `/${path}`;
-}
+  if (!currentScene) return <div>⚠️ Keine Szene geladen.</div>
 
-export default function SceneViewer({ currentScene }) {
+  const { title, visual, narration, audio, quiz, museum, journal } = currentScene
+  const combinedText = narration?.map(n => `${n.speaker}: ${n.text}`).join('\n\n')
+
   return (
-    <div className="scene-container">
-      <h2 className="text-2xl font-bold mb-4">{currentScene.title}</h2>
+    <div className="scene-viewer text-center p-4">
+      <h2>{title}</h2>
 
-      {/* Bild richtig laden */}
-      <img
-        src={getImagePath(currentScene.visual)}
-        alt={currentScene.title}
-        className="w-full max-w-3xl mx-auto my-4 rounded-xl shadow-md"
-      />
+      {/* Bild direkt einbinden */}
+      {visual && (
+        <img
+          src={visual}
+          alt={title}
+          style={{ maxWidth: '100%', borderRadius: '12px', marginTop: '1rem' }}
+        />
+      )}
 
-      {/* Narration ausgeben */}
-      <div className="narration space-y-2">
-        {currentScene.narration.map((line, index) => (
-          <p key={index}>
-            <strong>{line.speaker}:</strong> {line.text}
-          </p>
-        ))}
+      {/* Audio */}
+      {audio && (
+        <audio
+          key={audio}
+          controls
+          preload="metadata"
+          style={{ display: 'block', margin: '1rem auto', maxWidth: '100%' }}
+        >
+          <source src={audio} type="audio/mp4" />
+        </audio>
+      )}
+
+      {/* Narration */}
+      {combinedText && (
+        <p
+          style={{
+            whiteSpace: 'pre-wrap',
+            marginTop: '1rem',
+            maxWidth: '600px',
+            marginInline: 'auto'
+          }}
+        >
+          {combinedText}
+        </p>
+      )}
+
+      {/* Navigation */}
+      <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '12px' }}>
+        <SceneNavigation />
       </div>
+
+      {/* Icon Buttons */}
+      {(quiz || museum || journal) && (
+        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', marginTop: '1rem' }}>
+          {quiz && <IconButton type="quiz" label="Quiz" onClick={onOpenQuiz} />}
+          {museum && <IconButton type="museum" label="Museum" onClick={onOpenMuseum} />}
+          {journal && <IconButton type="journal" label="Journal" onClick={onOpenJournal} />}
+        </div>
+      )}
     </div>
-  );
+  )
 }
